@@ -15,6 +15,8 @@ for i = 1 : 1000
 end
 echo on
 
+%sum((1:1000)^2)
+
 disp('Result:')
 disp(s)
 
