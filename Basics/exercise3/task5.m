@@ -16,10 +16,11 @@ sgn = audioread(file_name);
 
 % Common practice is to visualize with spectogram
 figure;
+subplot(2,1,1)
 specgram(sgn)
 
 % We can plot the signal
-figure;
+subplot(2,1,2)
 plot(sgn)
 % In the case of sound we can also listen to signal
 soundsc(sgn)
@@ -33,14 +34,23 @@ filtered = filter(h, 1, sgn);
 %% Visualizing filtered results
 
 figure;
+subplot(2, 1, 1)
 specgram(filtered)
+title('Filtered')
+subplot(2, 1, 2)
+specgram(sgn)
+title('Original')
 
 figure;
+subplot(2, 1, 1)
 plot(filtered)
-
+title('Filtered')
+subplot(2, 1, 2)
+plot(sgn)
+title('Original')
 soundsc(filtered)
 
 %% Conclusion:
 
-% The high-pass filter does filter out the bird sound quite well. However
-% result is still messy and the sound intensity is high
+% The high-pass filter does filter out the lower deep sound pretty well.
+% However result is still messy and the sound intensity is high

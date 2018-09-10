@@ -7,12 +7,16 @@
 n = -7:1:7;
 
 stem(n', n==0) % delta(n) = 1 -> n == 0, 0 -> n != 0
+axis([-8 8 -1 8])
+title('delta(n)')
 
 %% b)
 
 u = n >= 0;
 
-stem(n', u)
+stem(n', u) % u(n) = 1 -> n >= 0, 0 -> n < 0
+axis([-8 8 -1 8])
+title('u(n)')
 
 %% c)
 
@@ -22,4 +26,6 @@ r = u;
 r = double(r); % Convert from logical to double
 r(i:length(n)) = n(i:length(n));
 
-stem(n, r)
+stem(n', r)
+axis([-8 8 -1 8])
+title('r(u)')
