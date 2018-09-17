@@ -4,7 +4,7 @@
 
 u = -7:1:14 >= 0;
 
-windowSize = 5; 
-b = (1/windowSize)*ones(1,windowSize);
-a = 1;
-stem(filter(b,a,u))
+ws = length(u); 
+b = (1/ws) * ones(1, ws);
+a = 1.1;
+stem(filter(a * ones(1, windowSize), 1, u))
