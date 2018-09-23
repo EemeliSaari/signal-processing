@@ -1,10 +1,12 @@
 % Task 2
 
-% Handling basic audio signal with Matlab
+% Filtering signal u(n)
 
 u = -7:1:14 >= 0;
 
-ws = length(u); 
-b = (1/ws) * ones(1, ws);
-a = 1.1;
-stem(filter(a * ones(1, windowSize), 1, u))
+%% Using system y(n) = 1.1y(n?1) +x(n)
+
+b = 1;
+a = [1 -1.1];
+
+stem(filter(b, a, u))

@@ -21,4 +21,4 @@ P1(2:end-1) = 2*P1(2:end-1);
 %% Plot the results
 
 f = fs*(0:(L/2))/L;
-plot(f,P1) 
+plot(f,P1)

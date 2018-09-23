@@ -3,10 +3,10 @@
 % Impulse responses
 
 %% a)
-stem(impz(-0.9, -1))
+stem(impz(1, [1 -0.9]))
 
 %% b)
-stem(impz([0.6 -0.3], [0.2 -0.5 0.8]))
+stem(impz([0.2 -0.5 0.8], [1 -0.6 0.3]))
 
 %% c)
-stem(impz([0.5 0.5], [0.5 0.25]))
+stem(impz([1 -0.5 -0.6], [1 0.5 0.25]))
