@@ -8,7 +8,7 @@
 %   Minimum stopband attenuation = 30 dB
 %   Sampling frequency = 44.1 kHz
 
-%%
+%% Define the variables according to the requirements
 
 Fs = 44.1e3;
 
@@ -18,14 +18,28 @@ fs = 18.0e3/Fs;
 low = 15.0e3/Fs;
 bnd = [fs fp];
 
-fc = [low bnd];
+fc = mean(bnd);
 
 type = 'high';
 
-% We'll select Hamming window
+% We'll select Hanning window since it
 N = ceil(3.1/(fp - fs));
-window = hamming(N);
 
-%%
+% Hanning window requires an odd number of coeficients so we'll check it.
+if (mod(N, 2) == 0)
+    N = N + 1;
+end
 
-d = fir1(N-1, fc, type, window);
+window = hann(N);
+
+%% Define the filter
+
+d = fir1(N-1, 2*fc, type, window);
+
+%% Display the Amplitude response
+
+freqz(d)
+
+%% Display the pole-zero plot
+
+zplane(d)
